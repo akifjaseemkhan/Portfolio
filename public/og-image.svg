@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050816" />
+      <stop offset="100%" stop-color="#0A0F2C" />
+    </linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#14F195" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.30" />
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0 H0 V48" fill="none" stroke="#00E5FF" stroke-opacity="0.08" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <ellipse cx="600" cy="315" rx="520" ry="300" fill="url(#glow)" />
+
+  <!-- Brand mark: same hex + A + three nodes as favicon.svg / Logo.jsx,
+       scaled up and placed beside the wordmark for a proper lockup. -->
+  <g transform="translate(80,150) scale(1.6)">
+    <path d="M32,5 L55.4,18.5 L55.4,45.5 L32,59 L8.6,45.5 L8.6,18.5 Z" fill="none" stroke="url(#txt)" stroke-width="2.4" stroke-linejoin="round" />
+    <path d="M20,47 L32,16.5 L44,47 M25,37.5 H39" fill="none" stroke="url(#txt)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="32" cy="5" r="2.3" fill="url(#txt)" />
+    <circle cx="8.6" cy="45.5" r="2.3" fill="url(#txt)" />
+    <circle cx="55.4" cy="45.5" r="2.3" fill="url(#txt)" />
+  </g>
+
+  <text x="200" y="270" font-family="Space Grotesk, sans-serif" font-size="86" font-weight="700" fill="url(#txt)">AJK<tspan fill="#00E5FF">.</tspan>DEV</text>
+  <text x="82" y="350" font-family="JetBrains Mono, monospace" font-size="26" fill="#ffffff" opacity="0.85">Akif Jaseem Khan — Frontend · Android · UI/UX · AI</text>
+  <text x="82" y="392" font-family="JetBrains Mono, monospace" font-size="22" fill="#14F195">Founder of StrangerMeet.org</text>
+  <rect x="80" y="452" width="330" height="56" rx="28" fill="none" stroke="#00E5FF" stroke-opacity="0.6" stroke-width="2" />
+  <text x="112" y="489" font-family="JetBrains Mono, monospace" font-size="21" fill="#00E5FF">ENTER THE 3D PORTFOLIO →</text>
+</svg>

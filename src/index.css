@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   Change these four values to re-skin the entire site — every component,
+   glow, gradient and 3D material reads from here (or from the matching
+   Tailwind tokens in tailwind.config.js).
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+  --c-base: #050816;
+  --c-primary: #00e5ff;
+  --c-secondary: #7c3aed;
+  --c-accent: #14f195;
+
+  --glass-bg: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  /* backdrop-filter is one of the costliest things a browser can composite,
+     especially on integrated GPUs — every point of blur radius is paid on
+     every frame a glass element is on screen, scrolling or not. Reduced
+     twice now (18px → 12px → 8px) — each step reads almost identical to
+     the last but is meaningfully cheaper across the ~30 glass panels on
+     the page. Full removal (a solid tinted background instead of true
+     blur) is the next lever if 8px still isn't enough — that would be a
+     real, visible change to the site's whole look, so it isn't done here
+     without being asked for explicitly. */
+  --glass-blur: 8px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background: var(--c-base);
+    /* Lenis drives scrolling; native smooth scroll would fight it. */
+    scroll-behavior: auto;
+    /* Belt-and-braces alongside body's overflow-x below: some mobile
+       browsers apply the horizontal scrollbar to the html element rather
+       than body when a descendant briefly overflows during an animation. */
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* The custom cursor replaces the native one on precise pointers only. */
+  @media (hover: hover) and (pointer: fine) {
+    body.custom-cursor-active,
+    body.custom-cursor-active * {
+      cursor: none !important;
+    }
+  }
+
+  /* Keyboard focus must always remain visible, cursor styling aside. */
+  :focus-visible {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--c-primary);
+    color: #050816;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050816;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--c-primary), var(--c-secondary));
+    border-radius: 99px;
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  /* ── Glassmorphism ────────────────────────────────────────────────── */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+      0 24px 70px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Animated gradient hairline that traces a card's top edge. */
+  .glass-edge {
+    position: relative;
+    isolation: isolate;
+  }
+  .glass-edge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      130deg,
+      rgba(0, 229, 255, 0.55),
+      rgba(124, 58, 237, 0.35) 40%,
+      transparent 65%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
+  /* ── Typography ───────────────────────────────────────────────────── */
+  .text-gradient {
+    background: linear-gradient(120deg, var(--c-primary), var(--c-secondary) 55%, var(--c-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* A tight rim of light, not a haze. Large headings pick up a wide, soft
+     text-shadow as an all-over fuzz that reads as "the text is blurry" —
+     keeping the radius small preserves crisp glyph edges. */
+  .text-glow {
+    text-shadow:
+      0 0 6px rgba(0, 229, 255, 0.35),
+      0 0 18px rgba(0, 229, 255, 0.14);
+  }
+
+  .label-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* ── Neon frame used by holographic cards ─────────────────────────── */
+  .neon-frame {
+    position: relative;
+  }
+  .neon-frame::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid currentColor;
+    opacity: 0.28;
+    pointer-events: none;
+    transition: opacity 0.45s var(--ease-out-expo);
+  }
+  .neon-frame:hover::after {
+    opacity: 0.85;
+  }
+
+  /* Scanline sheen for hologram surfaces. */
+  .hologram-lines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.045) 0px,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  }
+
+  /* Moving perspective grid used behind several sections. */
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Shimmering divider. */
+  .rule-glow {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 229, 255, 0.6),
+      rgba(124, 58, 237, 0.6),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+  .will-transform {
+    will-change: transform;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   Honour the OS setting: kill decorative motion, keep the site usable.
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
