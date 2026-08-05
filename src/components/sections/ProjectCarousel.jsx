@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { STATUS_STYLES } from '../../data/projects';
+import { useSwipeLock } from '../../hooks/useSwipeLock';
 
 /**
  * ── MOBILE PROJECT CAROUSEL ───────────────────────────────────────────
@@ -17,6 +18,7 @@ import { STATUS_STYLES } from '../../data/projects';
 export default function ProjectCarousel({ projects, onOpen }) {
   const trackRef = useRef(null);
   const [active, setActive] = useState(0);
+  useSwipeLock(trackRef);
 
   // Tracks which card is centred so the dots and the "charged" card style
   // stay in sync with an ordinary native scroll — no scroll-math needed,
@@ -58,7 +60,10 @@ export default function ProjectCarousel({ projects, onOpen }) {
 
       <ul
         ref={trackRef}
-        className="mask-fade-x -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        // touch-action: pan-x stops an imprecise diagonal swipe from also
+        // dragging the page vertically — without it, a swipe meant for the
+        // carousel can bleed into a page scroll mid-gesture.
+        className="mask-fade-x -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((p, i) => {
           const status = STATUS_STYLES[p.status];

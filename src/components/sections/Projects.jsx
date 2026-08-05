@@ -70,11 +70,13 @@ function InProgressPopup({ project, onClose }) {
         <h3 className="mb-2 text-xl font-bold text-white">{project.title}</h3>
         <p className="text-sm leading-relaxed text-white/60">{project.subtitle}</p>
         <p className="mt-4 text-xs text-white/40">
-          {project.status === 'planned'
-            ? "Not started yet — no link to share until it's underway."
-            : project.status === 'building'
-              ? 'Still in progress — no public link yet. Check back soon.'
-              : 'Built and shipped, just not published anywhere public yet.'}
+          {project.statusNote
+            ? project.statusNote
+            : project.status === 'planned'
+              ? "Not started yet — no link to share until it's underway."
+              : project.status === 'building'
+                ? 'Still in progress — no public link yet. Check back soon.'
+                : 'Built and shipped, just not published anywhere public yet.'}
         </p>
       </motion.div>
     </motion.div>

@@ -233,6 +233,28 @@
   }
 }
 
+/* Tech Stack Wall rows — a plain CSS animation rather than a scroll-linked
+   Framer Motion transform: it runs continuously on its own timeline
+   (doesn't need the visitor to be scrolling), and costs nothing on the
+   main thread since translateX is composited straight to the GPU. Each
+   row's `<ul>` renders its tile list twice back to back, so animating
+   exactly one set-width (-50%) loops seamlessly with no visible seam.
+   Duration/direction come in via custom properties (set inline per row)
+   rather than baked into named keyframes, so the reduced-motion override
+   below can restate the same values instead of guessing them. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-row {
+  animation: marquee var(--marquee-duration, 50s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    REDUCED MOTION
    Honour the OS setting: kill decorative motion, keep the site usable.
@@ -244,5 +266,17 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  /* Exempt from the kill-switch above: a slow, small-amplitude linear
+     icon slide isn't the kind of motion this setting exists to protect
+     against (parallax, spins, zooms) — it's closer to a ticking clock.
+     Freezing it outright just makes the section look broken instead of
+     calm, so it's carved back out here. `.marquee-row` has higher
+     selector specificity than the `*` above, so this wins regardless of
+     source order even though both use !important. */
+  .marquee-row {
+    animation-duration: var(--marquee-duration, 50s) !important;
+    animation-iteration-count: infinite !important;
   }
 }

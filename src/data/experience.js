@@ -88,6 +88,16 @@ export const experienceRooms = [
  */
 export const certificates = [
   {
+    // ⚠️ Year is a guess — replace with the real completion date.
+    id: 'cert-aptech-frontend',
+    title: 'Front End Development',
+    issuer: 'Aptech',
+    year: '2022',
+    color: '#FF5A36',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    url: null,
+  },
+  {
     id: 'cert-web',
     title: 'Responsive Web Design',
     issuer: 'freeCodeCamp',

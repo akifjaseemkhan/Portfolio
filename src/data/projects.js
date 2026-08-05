@@ -16,32 +16,6 @@
 
 export const projects = [
   {
-    id: 'coursetech',
-    title: 'CourseTech Android App',
-    subtitle: 'Interactive educational Android application',
-    year: '2024',
-    status: 'shipped',
-    accent: '#14F195',
-    description:
-      'A full offline-first learning platform for Android. CourseTech packages complete courses, notes, quizzes and homework tracking into a single app that keeps working with no connection — built for students who cannot rely on stable internet. Text-to-speech turns any lesson into audio, and progress syncs the moment the device comes back online.',
-    technologies: ['Kotlin', 'XML', 'JavaScript', 'HTML', 'Firebase', 'Android Studio'],
-    features: [
-      'Offline course library with downloadable lessons',
-      'Rich note-taking bound to each lesson',
-      'Quiz engine with instant scoring and review',
-      'Text-to-speech playback for every lesson',
-      'Homework tracker with deadline reminders',
-      'Visual progress tracking across all courses',
-    ],
-    stats: [
-      { label: 'Courses', value: '30+' },
-      { label: 'Offline', value: '100%' },
-      { label: 'Platform', value: 'Android' },
-    ],
-    images: ['/projects/coursetech-1.svg', '/projects/coursetech-2.svg', '/projects/coursetech-3.svg'],
-    links: { live: null, repo: 'https://github.com/akifjaseemkhan' },
-  },
-  {
     id: 'strangermeet',
     title: 'StrangerMeet.org',
     subtitle: 'Anonymous random chat platform',
@@ -92,128 +66,6 @@ export const projects = [
     ],
     images: ['/projects/portfolio-1.svg', '/projects/portfolio-2.svg', '/projects/portfolio-3.svg'],
     links: { live: 'https://ajk.dev', repo: 'https://github.com/akifjaseemkhan' },
-  },
-  {
-    // ⚠️ Placeholder entry — represents full-stack web work that exists but
-    // was never deployed publicly, so there's no real screenshot to use.
-    // `images` point at generated mockup art (see scripts/generate-placeholders.mjs)
-    // rather than a real capture — swap them for actual screenshots once
-    // any of these go live, and adjust description/features/stats to match
-    // the real build.
-    id: 'ecommerce-store',
-    title: 'E-Commerce Store',
-    subtitle: 'Full-stack online storefront',
-    year: '2025',
-    status: 'shipped',
-    accent: '#F472B6',
-    description:
-      'A complete MERN-stack storefront: product catalogue, cart, checkout flow and an admin panel for managing inventory — built to prove out a full order pipeline end to end, from browsing to a completed order.',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'REST APIs', 'TailwindCSS'],
-    features: [
-      'Product catalogue with search and filters',
-      'Cart and multi-step checkout flow',
-      'Admin panel for inventory management',
-      'REST API backend with MongoDB persistence',
-    ],
-    stats: [
-      { label: 'Stack', value: 'MERN' },
-      { label: 'Type', value: 'E-Commerce' },
-    ],
-    images: ['/projects/ecommerce-store-1.svg', '/projects/ecommerce-store-2.svg'],
-    links: { live: null, repo: null },
-  },
-  {
-    // ⚠️ Placeholder entry — see note on ecommerce-store above.
-    id: 'restaurant-website',
-    title: 'Restaurant Booking Site',
-    subtitle: 'Business website with table reservations',
-    year: '2025',
-    status: 'shipped',
-    accent: '#FBBF24',
-    description:
-      'A full-stack business website for a restaurant: a digital menu, a table reservation system backed by a relational database, and a contact/enquiry form — the kind of site a local business actually needs to run.',
-    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'REST APIs'],
-    features: [
-      'Digital menu organised by category',
-      'Table reservation system with live availability',
-      'MySQL-backed booking records',
-      'Responsive, mobile-first design',
-    ],
-    stats: [
-      { label: 'Stack', value: 'Node + MySQL' },
-      { label: 'Type', value: 'Business Site' },
-    ],
-    images: ['/projects/restaurant-website-1.svg', '/projects/restaurant-website-2.svg'],
-    links: { live: null, repo: null },
-  },
-  {
-    // ⚠️ Placeholder entry — see note on ecommerce-store above.
-    id: 'admin-dashboard',
-    title: 'Admin Dashboard',
-    subtitle: 'Full-stack analytics & management panel',
-    year: '2025',
-    status: 'shipped',
-    accent: '#00E5FF',
-    description:
-      'An internal dashboard for managing users and data: role-gated authentication, CRUD data tables and chart-based analytics views, running on a MySQL backend built for relational reporting queries.',
-    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'REST APIs', 'TailwindCSS'],
-    features: [
-      'Role-based authentication',
-      'CRUD data tables',
-      'Chart-based analytics views',
-      'Relational schema designed for reporting',
-    ],
-    stats: [
-      { label: 'Stack', value: 'Node + MySQL' },
-      { label: 'Type', value: 'Dashboard' },
-    ],
-    images: ['/projects/admin-dashboard-1.svg', '/projects/admin-dashboard-2.svg'],
-    links: { live: null, repo: null },
-  },
-  {
-    id: 'ai-design-store',
-    title: 'AI Design Store',
-    subtitle: 'Generative design marketplace',
-    year: '2026',
-    status: 'building',
-    accent: '#7C3AED',
-    description:
-      'An upcoming storefront for AI-assisted design products — templates, poster sets, UI kits and brand packs produced through a repeatable generative pipeline. The focus is on curation and consistency: every asset passes through the same prompt system, review pass and export spec.',
-    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Stripe', 'AI Design', 'Prompt Engineering'],
-    features: [
-      'Curated generative design catalogue',
-      'Instant digital delivery after checkout',
-      'Repeatable prompt-driven production pipeline',
-      'License management per product tier',
-    ],
-    stats: [
-      { label: 'Stage', value: 'In build' },
-      { label: 'Model', value: 'Digital' },
-    ],
-    images: ['/projects/ai-design-store-1.svg', '/projects/ai-design-store-2.svg'],
-    links: { live: null, repo: null },
-  },
-  {
-    id: 'etsy-digital',
-    title: 'Etsy Digital Products',
-    subtitle: 'AI-crafted digital product line',
-    year: '2026',
-    status: 'building',
-    accent: '#14F195',
-    description:
-      'A digital product line sold through Etsy: printable art sets, planner systems and social templates, each produced with an AI-first workflow and finished by hand in Photoshop and Figma. It is as much a study in listing design, SEO and conversion as it is in visual output.',
-    technologies: ['AI Design', 'Photoshop', 'Figma', 'Prompt Engineering'],
-    features: [
-      'Print-ready art and template collections',
-      'Listing SEO and mockup presentation system',
-      'Batch production workflow for consistent output',
-    ],
-    stats: [
-      { label: 'Channel', value: 'Etsy' },
-      { label: 'Type', value: 'Digital' },
-    ],
-    images: ['/projects/etsy-digital-1.svg', '/projects/etsy-digital-2.svg'],
-    links: { live: null, repo: null },
   },
   {
     // ⚠️ Description, features, stats and images below are still guesses —
@@ -289,6 +141,158 @@ export const projects = [
       live: 'https://play.google.com/store/apps/details?id=motivationalvalley.ChangeYourThinkingChangeYourLife&hl=en',
       repo: null,
     },
+  },
+  {
+    // Live and in day-to-day use — it's a private/internal tool, so there's
+    // no public URL to link to. `statusNote` is read by the status popup
+    // in Projects.jsx instead of the generic "not published yet" copy,
+    // which would be misleading for something that actually ships and runs.
+    id: 'admin-dashboard',
+    title: 'Admin Dashboard',
+    subtitle: 'Full-stack analytics & management panel',
+    year: '2025',
+    status: 'live',
+    statusNote: "Live and in active use — it's a private, internal tool, so there's no public link to share.",
+    accent: '#00E5FF',
+    description:
+      'An internal dashboard for managing users and data: role-gated authentication, CRUD data tables and chart-based analytics views, running on a MySQL backend built for relational reporting queries.',
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'REST APIs', 'TailwindCSS'],
+    features: [
+      'Role-based authentication',
+      'CRUD data tables',
+      'Chart-based analytics views',
+      'Relational schema designed for reporting',
+    ],
+    stats: [
+      { label: 'Stack', value: 'Node + MySQL' },
+      { label: 'Status', value: 'Live (private)' },
+    ],
+    images: ['/projects/admin-dashboard-1.svg', '/projects/admin-dashboard-2.svg'],
+    links: { live: null, repo: null },
+  },
+  {
+    id: 'coursetech',
+    title: 'CourseTech Android App',
+    subtitle: 'Interactive educational Android application',
+    year: '2024',
+    status: 'shipped',
+    accent: '#14F195',
+    description:
+      'A full offline-first learning platform for Android. CourseTech packages complete courses, notes, quizzes and homework tracking into a single app that keeps working with no connection — built for students who cannot rely on stable internet. Text-to-speech turns any lesson into audio, and progress syncs the moment the device comes back online.',
+    technologies: ['Kotlin', 'XML', 'JavaScript', 'HTML', 'Firebase', 'Android Studio'],
+    features: [
+      'Offline course library with downloadable lessons',
+      'Rich note-taking bound to each lesson',
+      'Quiz engine with instant scoring and review',
+      'Text-to-speech playback for every lesson',
+      'Homework tracker with deadline reminders',
+      'Visual progress tracking across all courses',
+    ],
+    stats: [
+      { label: 'Courses', value: '30+' },
+      { label: 'Offline', value: '100%' },
+      { label: 'Platform', value: 'Android' },
+    ],
+    images: ['/projects/coursetech-1.svg', '/projects/coursetech-2.svg', '/projects/coursetech-3.svg'],
+    links: { live: null, repo: 'https://github.com/akifjaseemkhan' },
+  },
+  {
+    // ⚠️ Placeholder entry — represents full-stack web work that exists but
+    // was never deployed publicly, so there's no real screenshot to use.
+    // `images` point at generated mockup art (see scripts/generate-placeholders.mjs)
+    // rather than a real capture — swap them for actual screenshots once
+    // any of these go live, and adjust description/features/stats to match
+    // the real build.
+    id: 'ecommerce-store',
+    title: 'E-Commerce Store',
+    subtitle: 'Full-stack online storefront',
+    year: '2025',
+    status: 'shipped',
+    accent: '#F472B6',
+    description:
+      'A complete MERN-stack storefront: product catalogue, cart, checkout flow and an admin panel for managing inventory — built to prove out a full order pipeline end to end, from browsing to a completed order.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'REST APIs', 'TailwindCSS'],
+    features: [
+      'Product catalogue with search and filters',
+      'Cart and multi-step checkout flow',
+      'Admin panel for inventory management',
+      'REST API backend with MongoDB persistence',
+    ],
+    stats: [
+      { label: 'Stack', value: 'MERN' },
+      { label: 'Type', value: 'E-Commerce' },
+    ],
+    images: ['/projects/ecommerce-store-1.svg', '/projects/ecommerce-store-2.svg'],
+    links: { live: null, repo: null },
+  },
+  {
+    // ⚠️ Placeholder entry — see note on ecommerce-store above.
+    id: 'restaurant-website',
+    title: 'Restaurant Booking Site',
+    subtitle: 'Business website with table reservations',
+    year: '2025',
+    status: 'shipped',
+    accent: '#FBBF24',
+    description:
+      'A full-stack business website for a restaurant: a digital menu, a table reservation system backed by a relational database, and a contact/enquiry form — the kind of site a local business actually needs to run.',
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'REST APIs'],
+    features: [
+      'Digital menu organised by category',
+      'Table reservation system with live availability',
+      'MySQL-backed booking records',
+      'Responsive, mobile-first design',
+    ],
+    stats: [
+      { label: 'Stack', value: 'Node + MySQL' },
+      { label: 'Type', value: 'Business Site' },
+    ],
+    images: ['/projects/restaurant-website-1.svg', '/projects/restaurant-website-2.svg'],
+    links: { live: null, repo: null },
+  },
+  {
+    id: 'ai-design-store',
+    title: 'AI Design Store',
+    subtitle: 'Generative design marketplace',
+    year: '2026',
+    status: 'building',
+    accent: '#7C3AED',
+    description:
+      'An upcoming storefront for AI-assisted design products — templates, poster sets, UI kits and brand packs produced through a repeatable generative pipeline. The focus is on curation and consistency: every asset passes through the same prompt system, review pass and export spec.',
+    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Stripe', 'AI Design', 'Prompt Engineering'],
+    features: [
+      'Curated generative design catalogue',
+      'Instant digital delivery after checkout',
+      'Repeatable prompt-driven production pipeline',
+      'License management per product tier',
+    ],
+    stats: [
+      { label: 'Stage', value: 'In build' },
+      { label: 'Model', value: 'Digital' },
+    ],
+    images: ['/projects/ai-design-store-1.svg', '/projects/ai-design-store-2.svg'],
+    links: { live: null, repo: null },
+  },
+  {
+    id: 'etsy-digital',
+    title: 'Etsy Digital Products',
+    subtitle: 'AI-crafted digital product line',
+    year: '2026',
+    status: 'building',
+    accent: '#14F195',
+    description:
+      'A digital product line sold through Etsy: printable art sets, planner systems and social templates, each produced with an AI-first workflow and finished by hand in Photoshop and Figma. It is as much a study in listing design, SEO and conversion as it is in visual output.',
+    technologies: ['AI Design', 'Photoshop', 'Figma', 'Prompt Engineering'],
+    features: [
+      'Print-ready art and template collections',
+      'Listing SEO and mockup presentation system',
+      'Batch production workflow for consistent output',
+    ],
+    stats: [
+      { label: 'Channel', value: 'Etsy' },
+      { label: 'Type', value: 'Digital' },
+    ],
+    images: ['/projects/etsy-digital-1.svg', '/projects/etsy-digital-2.svg'],
+    links: { live: null, repo: null },
   },
   {
     id: 'saas',

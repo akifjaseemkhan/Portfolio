@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { profile } from '../../data/profile';
 import { useIsMobile, useIsTouch } from '../../hooks/useDevice';
+import { useSwipeLock } from '../../hooks/useSwipeLock';
 import SectionHeading from '../ui/SectionHeading';
 
 const ACCENTS = ['#00E5FF', '#7C3AED', '#14F195'];
@@ -136,6 +137,7 @@ function Panel({ item, index, scrollYProgress, carousel = false }) {
 function AboutCarousel({ items, scrollYProgress }) {
   const trackRef = useRef(null);
   const [active, setActive] = useState(0);
+  useSwipeLock(trackRef);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -166,7 +168,10 @@ function AboutCarousel({ items, scrollYProgress }) {
     <div className="relative">
       <ul
         ref={trackRef}
-        className="mask-fade-x -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        // touch-action: pan-x stops an imprecise diagonal swipe from also
+        // dragging the page vertically — without it, a swipe meant for the
+        // carousel can bleed into a page scroll mid-gesture.
+        className="mask-fade-x -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((item, i) => (
           <Panel key={item.title} item={item} index={i} scrollYProgress={scrollYProgress} carousel />
