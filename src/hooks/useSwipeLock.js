@@ -35,6 +35,15 @@ import { useEffect } from 'react';
  * back to whichever card ends up nearest. Not used for the Tech Wall's
  * tile row (default false) — that's meant to free-scroll, not snap tile
  * by tile, so this step is skipped there.
+ *
+ * That step-to-card jump is deliberately instant (`behavior: 'auto'`),
+ * not animated. An animated jump takes a couple hundred ms to finish, and
+ * swiping again before it does — completely ordinary when flicking
+ * through several cards in a row — meant the next gesture started by
+ * reading `scrollLeft` mid-animation instead of settled. That stale,
+ * still-moving read threw off which card counted as "active", and the
+ * next ±1 step landed several cards away instead of one. Instant removes
+ * the animation window entirely, so there's nothing left to race.
  */
 export function useSwipeLock(ref, { snapChildren = false } = {}) {
   useEffect(() => {
@@ -88,7 +97,7 @@ export function useSwipeLock(ref, { snapChildren = false } = {}) {
 
           const dir = netDelta > 0 ? 1 : -1;
           const target = Math.min(cards.length - 1, Math.max(0, activeIndex + dir));
-          cards[target]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          cards[target]?.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
         }
       }
 
