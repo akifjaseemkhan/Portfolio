@@ -36,14 +36,25 @@ import { useEffect } from 'react';
  * tile row (default false) — that's meant to free-scroll, not snap tile
  * by tile, so this step is skipped there.
  *
- * That step-to-card jump is deliberately instant (`behavior: 'auto'`),
- * not animated. An animated jump takes a couple hundred ms to finish, and
- * swiping again before it does — completely ordinary when flicking
- * through several cards in a row — meant the next gesture started by
- * reading `scrollLeft` mid-animation instead of settled. That stale,
- * still-moving read threw off which card counted as "active", and the
- * next ±1 step landed several cards away instead of one. Instant removes
- * the animation window entirely, so there's nothing left to race.
+ * That step-to-card jump is deliberately instant, and deliberately just
+ * `el.scrollLeft = ...` rather than `card.scrollIntoView(...)`:
+ *
+ * 1. Instant, not animated — an animated jump takes a couple hundred ms
+ *    to finish, and swiping again before it does (ordinary when flicking
+ *    through several cards) meant the next gesture read `scrollLeft`
+ *    mid-animation instead of settled, throwing off which card counted
+ *    as "active" and landing several cards away instead of one.
+ *
+ * 2. `scrollLeft` math, not `scrollIntoView` — `scrollIntoView` considers
+ *    both axes even when only `inline` (X) is meant to move. Confirmed
+ *    directly: even with `overflow-y: hidden` on the track (which blocks
+ *    *touch-driven* vertical scroll), a `scrollIntoView({ block:
+ *    'nearest' })` call still moved `scrollTop` by itself — `hidden` only
+ *    removes the user-facing scroll affordance, it doesn't stop a script
+ *    from scrolling that axis. That was the real cause of the card
+ *    visibly drifting up and clipping after a swipe. Writing `scrollLeft`
+ *    by hand never touches `scrollTop` at all, so there's nothing left
+ *    that can move on that axis.
  */
 export function useSwipeLock(ref, { snapChildren = false } = {}) {
   useEffect(() => {
@@ -97,7 +108,10 @@ export function useSwipeLock(ref, { snapChildren = false } = {}) {
 
           const dir = netDelta > 0 ? 1 : -1;
           const target = Math.min(cards.length - 1, Math.max(0, activeIndex + dir));
-          cards[target]?.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+          const targetCard = cards[target];
+          if (targetCard) {
+            el.scrollLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+          }
         }
       }
 

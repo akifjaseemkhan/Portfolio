@@ -161,7 +161,7 @@ export default function TechWall() {
         aria-hidden="true"
         className={
           isMobile
-            ? 'mask-fade-x -mx-6 flex flex-col gap-6 overflow-x-auto px-6 pb-8 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden'
+            ? 'mask-fade-x -mx-6 flex flex-col gap-6 overflow-x-auto overflow-y-hidden px-6 pb-8 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden'
             : 'mask-fade-x flex flex-col gap-8 py-4'
         }
       >

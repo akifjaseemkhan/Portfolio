@@ -161,7 +161,18 @@ function AboutCarousel({ items, scrollYProgress }) {
   const scrollToCard = (i) => {
     const track = trackRef.current;
     const card = track?.children[i];
-    card?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    if (!track || !card) return;
+    // Plain scrollLeft math, not scrollIntoView — scrollIntoView considers
+    // both axes even when only X is meant to move, and was confirmed to
+    // shift scrollTop on this track even with overflow-y locked to
+    // hidden (see useSwipeLock.js for the full story). scroll-behavior is
+    // set inline just for this one write so it animates without needing
+    // Framer Motion or a manual rAF tween, and never touches scrollTop.
+    track.style.scrollBehavior = 'smooth';
+    track.scrollLeft = card.offsetLeft + card.offsetWidth / 2 - track.clientWidth / 2;
+    requestAnimationFrame(() => {
+      track.style.scrollBehavior = '';
+    });
   };
 
   return (
@@ -171,7 +182,14 @@ function AboutCarousel({ items, scrollYProgress }) {
         // touch-action: pan-x stops an imprecise diagonal swipe from also
         // dragging the page vertically — without it, a swipe meant for the
         // carousel can bleed into a page scroll mid-gesture.
-        className="mask-fade-x -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden"
+        // overflow-x-auto alone leaves overflow-y computed as 'auto' too
+        // (a CSS quirk: setting one axis forces the other off 'visible'),
+        // and the entrance-animated cards' transform briefly extends their
+        // visual bounds past the track's own height — enough scrollable
+        // overflow that a swipe could drag the track vertically by itself,
+        // independent of the page. overflow-y-hidden shuts that off for
+        // good: this track should never scroll on Y, only X.
+        className="mask-fade-x -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden px-6 pb-2 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((item, i) => (
           <Panel key={item.title} item={item} index={i} scrollYProgress={scrollYProgress} carousel />
