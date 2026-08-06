@@ -25,17 +25,30 @@ import { useEffect } from 'react';
  * after every single touchmove and the drag never visibly moves. Turning
  * it off mid-drag and back on at touchend gets the drag-follow back
  * without losing the snap-into-place on release.
+ *
+ * `snapChildren: true` (About/Projects, one big card per view) adds one
+ * more thing: on release, plain "restore snap and let it settle" only
+ * changes cards once the drag has crossed the halfway point — reported
+ * as needing a "complete" full-width drag to advance. A short, deliberate
+ * swipe past a small distance threshold should be enough too, so it
+ * explicitly steps one card in that direction instead of just falling
+ * back to whichever card ends up nearest. Not used for the Tech Wall's
+ * tile row (default false) — that's meant to free-scroll, not snap tile
+ * by tile, so this step is skipped there.
  */
-export function useSwipeLock(ref) {
+export function useSwipeLock(ref, { snapChildren = false } = {}) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return undefined;
 
     let lastX = 0;
     let dragging = false;
+    let scrollLeftAtStart = 0;
 
     const onStart = (e) => {
-      lastX = e.touches[0].clientX;
+      const x = e.touches[0].clientX;
+      lastX = x;
+      scrollLeftAtStart = el.scrollLeft;
       dragging = true;
       el.style.scrollSnapType = 'none';
     };
@@ -51,7 +64,34 @@ export function useSwipeLock(ref) {
     };
 
     const onEnd = () => {
+      if (!dragging) return;
       dragging = false;
+
+      if (snapChildren) {
+        const netDelta = el.scrollLeft - scrollLeftAtStart; // px actually scrolled
+        const DISTANCE_THRESHOLD = 40; // a "small slide", not a full drag
+        const committed = Math.abs(netDelta) > DISTANCE_THRESHOLD;
+
+        if (committed) {
+          const cards = Array.from(el.children);
+          const startCenter = scrollLeftAtStart + el.clientWidth / 2;
+          let activeIndex = 0;
+          let closest = Infinity;
+          cards.forEach((card, i) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const dist = Math.abs(cardCenter - startCenter);
+            if (dist < closest) {
+              closest = dist;
+              activeIndex = i;
+            }
+          });
+
+          const dir = netDelta > 0 ? 1 : -1;
+          const target = Math.min(cards.length - 1, Math.max(0, activeIndex + dir));
+          cards[target]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
+
       el.style.scrollSnapType = '';
     };
 
@@ -65,5 +105,5 @@ export function useSwipeLock(ref) {
       el.removeEventListener('touchend', onEnd);
       el.removeEventListener('touchcancel', onEnd);
     };
-  }, [ref]);
+  }, [ref, snapChildren]);
 }

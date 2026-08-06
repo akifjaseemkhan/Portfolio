@@ -18,7 +18,7 @@ import { useSwipeLock } from '../../hooks/useSwipeLock';
 export default function ProjectCarousel({ projects, onOpen }) {
   const trackRef = useRef(null);
   const [active, setActive] = useState(0);
-  useSwipeLock(trackRef);
+  useSwipeLock(trackRef, { snapChildren: true });
 
   // Tracks which card is centred so the dots and the "charged" card style
   // stay in sync with an ordinary native scroll — no scroll-math needed,

@@ -137,7 +137,7 @@ function Panel({ item, index, scrollYProgress, carousel = false }) {
 function AboutCarousel({ items, scrollYProgress }) {
   const trackRef = useRef(null);
   const [active, setActive] = useState(0);
-  useSwipeLock(trackRef);
+  useSwipeLock(trackRef, { snapChildren: true });
 
   useEffect(() => {
     const track = trackRef.current;
