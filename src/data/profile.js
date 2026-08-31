@@ -10,7 +10,7 @@ export const profile = {
   /** Username used to build social URLs. */
   handle: 'johndoe',
   /** Short, personal one-liner shown under the hero name. */
-  bio: 'Jack of all techs. Master of prompting AI.',
+  bio: 'Full-stack builder, powered by AI.',
   /** Rotated by the hero typewriter, in order. */
   titles: [
     'Software Engineering Student',
