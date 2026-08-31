@@ -49,7 +49,7 @@ export const skills = [
   { name: 'MySQL', level: 78, glyph: 'SQL', category: 'backend', color: '#4479A1', blurb: 'Relational schema design, joins and query optimization for structured data.' },
   { name: 'Firebase', level: 84, glyph: '🔥', category: 'backend', color: '#FFCA28', blurb: 'Auth, Firestore, storage and cloud messaging in shipped apps.' },
   { name: 'REST APIs', level: 86, glyph: '{}', category: 'backend', color: '#00E5FF', blurb: 'Designing and consuming clean, versioned, well-documented APIs.' },
-  { name: 'Cloudflare', level: 79, glyph: '☁', category: 'backend', color: '#F38020', blurb: 'Pages, Workers and edge delivery — powering StrangerMeet.org.' },
+  { name: 'Cloudflare', level: 79, glyph: '☁', category: 'backend', color: '#F38020', blurb: 'Pages, Workers and edge delivery — powering PulseChat.' },
 
   // ── Design & AI ───────────────────────────────────────────────────
   { name: 'Figma', level: 88, glyph: '◐', category: 'design', color: '#F24E1E', blurb: 'Design systems, auto-layout, prototyping and dev handoff.' },

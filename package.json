@@ -1,9 +1,9 @@
 {
-  "name": "akif-khan-portfolio",
+  "name": "johndoe-portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Interactive 3D cyberpunk portfolio for Akif Khan",
+  "description": "Interactive 3D cyberpunk portfolio template",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

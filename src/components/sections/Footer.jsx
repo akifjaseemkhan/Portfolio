@@ -23,7 +23,7 @@ export default function Footer({ lenis }) {
                 <Logo className="h-5 w-5" />
               </span>
               <span className="text-white">
-                AJK<span className="text-primary">.</span>DEV
+                JD<span className="text-primary">.</span>DEV
               </span>
             </button>
             <p className="max-w-sm text-sm leading-relaxed text-white/45">{profile.tagline}</p>

@@ -80,8 +80,14 @@ function GlassKeyboard({ pulse }) {
 /**
  * Formspree endpoint — submissions POSTed here land directly in the inbox
  * tied to this form, no mail client on the visitor's end required.
+ *
+ * ⚠️ SET THIS UP: sign in at https://formspree.io, create a form, and paste
+ * its endpoint (looks like "https://formspree.io/f/abcdwxyz") here. Until
+ * that's done, submissions will fail — the placeholder below is not a real
+ * endpoint. (Reset from the real one when this became a demo persona's
+ * portfolio — that endpoint routed to a real inbox.)
  */
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeeybkpk';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
 
 /**
  * ── CONTACT COMMAND CENTER ────────────────────────────────────────────

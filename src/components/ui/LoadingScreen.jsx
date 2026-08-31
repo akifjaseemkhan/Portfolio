@@ -146,7 +146,7 @@ export default function LoadingScreen({ ready = false, onComplete }) {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mb-2 px-6 text-center text-2xl font-bold tracking-[0.28em] text-white sm:text-3xl"
           >
-            AJK<span className="text-primary">.</span>DEV
+            JD<span className="text-primary">.</span>DEV
           </motion.h1>
           <p className="label-mono mb-1">{profile.name}</p>
           <p className="label-mono mb-10 !text-white/35">Software Engineer</p>

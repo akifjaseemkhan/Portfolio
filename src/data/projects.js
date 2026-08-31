@@ -17,10 +17,11 @@
 export const projects = [
   {
     id: 'strangermeet',
-    title: 'StrangerMeet.org',
+    title: 'PulseChat',
     subtitle: 'Anonymous random chat platform',
     year: '2025',
     status: 'live',
+    statusNote: "Live and running, but this is a demo persona's project — no real public link to share.",
     accent: '#00E5FF',
     description:
       'A real-time anonymous chat platform I founded and ship. Strangers are paired instantly, with no account and no history kept. The whole front end is deployed on Cloudflare so matching feels immediate anywhere in the world, and the interface was designed mobile-first to stay fast on weak connections.',
@@ -39,7 +40,7 @@ export const projects = [
       { label: 'Role', value: 'Founder' },
     ],
     images: ['/projects/strangermeet-1.svg', '/projects/strangermeet-2.svg', '/projects/strangermeet-3.svg'],
-    links: { live: 'https://strangermeet.org', repo: null },
+    links: { live: null, repo: null },
   },
   {
     id: 'portfolio',
@@ -65,17 +66,15 @@ export const projects = [
       { label: 'Bundle', value: 'Split' },
     ],
     images: ['/projects/portfolio-1.svg', '/projects/portfolio-2.svg', '/projects/portfolio-3.svg'],
-    links: { live: 'https://ajk.dev', repo: 'https://github.com/akifjaseemkhan' },
+    links: { live: null, repo: 'https://github.com/johndoe' },
   },
   {
-    // ⚠️ Description, features, stats and images below are still guesses —
-    // the live link is real, replace the rest with real details once you
-    // have them.
+    // ⚠️ Placeholder entry — see note on ecommerce-store above.
     id: 'aj-educators',
-    title: 'AJ Educators',
+    title: 'EduTrack',
     subtitle: 'Educational Android app',
     year: '2025',
-    status: 'live',
+    status: 'shipped',
     accent: '#14F195',
     description:
       'An Android app built to make learning more structured and accessible for students — course content, tracking and a clean, distraction-free interface.',
@@ -90,17 +89,15 @@ export const projects = [
       { label: 'Status', value: 'Published' },
     ],
     images: ['/projects/aj-educators-1.svg', '/projects/aj-educators-2.svg'],
-    links: { live: 'https://play.google.com/store/apps/dev?id=7158928373588415830&hl=en', repo: null },
+    links: { live: null, repo: null },
   },
   {
-    // ⚠️ Description, features, stats and images below are still guesses —
-    // the live link is real, replace the rest with real details once you
-    // have them.
+    // ⚠️ Placeholder entry — see note on ecommerce-store above.
     id: 'bitread',
     title: 'Bitread',
     subtitle: 'Reading companion Android app',
     year: '2025',
-    status: 'live',
+    status: 'shipped',
     accent: '#7C3AED',
     description:
       'An Android app for readers — built around a fast, focused reading experience with a modern interface.',
@@ -115,14 +112,15 @@ export const projects = [
       { label: 'Status', value: 'Published' },
     ],
     images: ['/projects/bitread-1.svg', '/projects/bitread-2.svg'],
-    links: { live: 'https://play.google.com/store/apps/details?id=com.bitreadapp&hl=en', repo: null },
+    links: { live: null, repo: null },
   },
   {
+    // ⚠️ Placeholder entry — see note on ecommerce-store above.
     id: 'playstore-apps',
     title: 'Play Store Apps',
     subtitle: 'Published Android apps',
     year: '2025',
-    status: 'live',
+    status: 'shipped',
     accent: '#00E5FF',
     description:
       'A collection of Android apps published on the Google Play Store, covering education, utilities and everyday tools.',
@@ -137,10 +135,7 @@ export const projects = [
       { label: 'Store', value: 'Google Play' },
     ],
     images: ['/projects/playstore-apps-1.svg', '/projects/playstore-apps-2.svg'],
-    links: {
-      live: 'https://play.google.com/store/apps/details?id=motivationalvalley.ChangeYourThinkingChangeYourLife&hl=en',
-      repo: null,
-    },
+    links: { live: null, repo: null },
   },
   {
     // Live and in day-to-day use — it's a private/internal tool, so there's
@@ -194,7 +189,7 @@ export const projects = [
       { label: 'Platform', value: 'Android' },
     ],
     images: ['/projects/coursetech-1.svg', '/projects/coursetech-2.svg', '/projects/coursetech-3.svg'],
-    links: { live: null, repo: 'https://github.com/akifjaseemkhan' },
+    links: { live: null, repo: 'https://github.com/johndoe' },
   },
   {
     // ⚠️ Placeholder entry — represents full-stack web work that exists but

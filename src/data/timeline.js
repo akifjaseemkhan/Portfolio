@@ -59,11 +59,11 @@ export const timeline = [
   {
     id: 'strangermeet',
     period: '2025',
-    title: 'Founder of StrangerMeet.org',
+    title: 'Founder of PulseChat',
     tag: 'Founder',
     color: '#00E5FF',
     description:
-      'Founded StrangerMeet.org — an anonymous real-time chat platform. Owned the product end to end: concept, UI, real-time layer and edge deployment on Cloudflare.',
+      'Founded PulseChat — an anonymous real-time chat platform. Owned the product end to end: concept, UI, real-time layer and edge deployment on Cloudflare.',
     highlights: ['Real-time WebSocket layer', 'Cloudflare edge delivery', 'Product & brand ownership'],
   },
   {

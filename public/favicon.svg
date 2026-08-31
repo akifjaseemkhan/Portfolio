@@ -9,9 +9,9 @@
   <rect width="64" height="64" rx="16" fill="#050816" />
   <!-- Hex chip frame -->
   <path d="M32,5 L55.4,18.5 L55.4,45.5 L32,59 L8.6,45.5 L8.6,18.5 Z" fill="none" stroke="url(#g)" stroke-width="2.4" stroke-linejoin="round" />
-  <!-- A monogram -->
-  <path d="M20,47 L32,16.5 L44,47 M25,37.5 H39" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-  <!-- Three corner nodes standing in for the three initials, A · J · K -->
+  <!-- J monogram -->
+  <path d="M40,16 V40 Q40,49 31,49 Q23,49 21,41" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Three corner nodes — decorative accents on the chip frame -->
   <circle cx="32" cy="5" r="2.3" fill="url(#g)" />
   <circle cx="8.6" cy="45.5" r="2.3" fill="url(#g)" />
   <circle cx="55.4" cy="45.5" r="2.3" fill="url(#g)" />

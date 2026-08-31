@@ -120,7 +120,7 @@ export default function Navbar({ lenis, sectionsReady = false }) {
               <Logo className="h-5 w-5" />
               <span className="absolute inset-0 animate-pulse-glow rounded-lg shadow-neon" />
             </span>
-            <span className="hidden text-white sm:inline">AJK<span className="text-primary">.</span>DEV</span>
+            <span className="hidden text-white sm:inline">JD<span className="text-primary">.</span>DEV</span>
           </button>
 
           {/* Desktop links */}

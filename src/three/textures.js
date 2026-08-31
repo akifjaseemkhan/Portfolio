@@ -424,7 +424,7 @@ export function createPortfolioTexture() {
 
     ctx.fillStyle = '#00E5FF';
     ctx.font = 'bold 14px "Space Grotesk", sans-serif';
-    ctx.fillText('AJK.DEV', 34, 36);
+    ctx.fillText('JD.DEV', 34, 36);
 
     ctx.font = '11px "Space Grotesk", sans-serif';
     ['Home', 'Work', 'About', 'Contact'].forEach((item, i) => {
@@ -443,9 +443,7 @@ export function createPortfolioTexture() {
     grad.addColorStop(1, '#14F195');
     ctx.fillStyle = grad;
     ctx.font = 'bold 40px "Space Grotesk", sans-serif';
-    // Abbreviated form of the real name — the full "Akif Jaseem Khan" at
-    // this font size would overflow the 512px canvas width.
-    ctx.fillText('AKIF J. KHAN', 32, 134);
+    ctx.fillText('JOHN DOE', 32, 134);
 
     // Rotating role with a typewriter caret, mirroring the real hero
     const roleIdx = Math.floor(t / 2.4) % ROLES.length;
@@ -480,7 +478,7 @@ export function createPortfolioTexture() {
     // ── Project cards ────────────────────────────────────────────
     const cards = [
       { label: 'CourseTech', tint: '#14F195' },
-      { label: 'StrangerMeet', tint: '#00E5FF' },
+      { label: 'PulseChat', tint: '#00E5FF' },
       { label: 'Portfolio', tint: '#7C3AED' },
     ];
     cards.forEach((card, i) => {

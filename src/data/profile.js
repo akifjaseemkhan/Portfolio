@@ -6,9 +6,9 @@
 
 export const profile = {
   /** Drives the hero headline, loading screen, footer and SEO. */
-  name: 'Akif Jaseem Khan',
+  name: 'John Doe',
   /** Username used to build social URLs. */
-  handle: 'akifjaseemkhan',
+  handle: 'johndoe',
   /** Short, personal one-liner shown under the hero name. */
   bio: 'Jack of all techs. Master of prompting AI.',
   /** Rotated by the hero typewriter, in order. */
@@ -19,7 +19,7 @@ export const profile = {
     'Web Developer',
     'UI/UX Designer',
     'AI Design Creator',
-    'Founder of StrangerMeet.org',
+    'Founder of PulseChat',
   ],
   tagline: 'Building immersive interfaces where design meets engineering.',
   location: 'Available worldwide · Remote',
@@ -52,8 +52,8 @@ export const profile = {
     },
     {
       icon: '⬢',
-      title: 'Founder — StrangerMeet.org',
-      text: 'Founded and ship StrangerMeet.org, an anonymous real-time chat platform running on Cloudflare at the edge.',
+      title: 'Founder — PulseChat',
+      text: 'Founded and ship PulseChat, an anonymous real-time chat platform running on Cloudflare at the edge.',
     },
     {
       icon: '◈',
@@ -81,8 +81,8 @@ export const contactChannels = [
   {
     id: 'email',
     label: 'Email',
-    handle: 'akifjaseemkhandev@gmail.com',
-    href: 'mailto:akifjaseemkhandev@gmail.com',
+    handle: 'john.doe@example.com',
+    href: 'mailto:john.doe@example.com',
     color: '#00E5FF',
     icon: 'mail',
   },
@@ -93,15 +93,15 @@ export const contactChannels = [
     // platform's already named above it, so printing the handle again
     // underneath was redundant.
     handle: 'View Profile',
-    href: 'https://github.com/akifjaseemkhan',
+    href: 'https://github.com/johndoe',
     color: '#FFFFFF',
     icon: 'github',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    handle: 'in/akifjaseemkhan',
-    href: 'https://www.linkedin.com/in/akifjaseemkhan',
+    handle: 'in/johndoe',
+    href: 'https://www.linkedin.com/in/johndoe',
     color: '#0A84FF',
     icon: 'linkedin',
   },

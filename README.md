@@ -1,4 +1,4 @@
-# Akif Khan — Interactive 3D Portfolio
+# Interactive 3D Portfolio
 
 A cinematic, dark-cyberpunk portfolio built as a WebGL experience rather than a page:
 a fully modelled 3D workspace, a navigable skills galaxy, holographic project cubes
@@ -178,17 +178,19 @@ Before going live, update the absolute URLs in `index.html` (`og:url`, `canonica
 These are stand-ins to replace with real values:
 
 - `public/projects/*.svg` — generated placeholder screenshots
-- **The LinkedIn URL** in `contactChannels` (`src/data/profile.js`) is still
-  guessed from the `akifjaseemkhan` handle. Replace its `href` with the real
-  profile link. Email and GitHub are both real.
+- Every identity field — name, email, GitHub, LinkedIn — currently holds a
+  placeholder "John Doe" persona (`src/data/profile.js`, plus `index.html`'s
+  meta tags and the "JD.DEV" wordmark in `Logo.jsx` / `Navbar.jsx` /
+  `Footer.jsx` / `LoadingScreen.jsx`). Swap all of it in before using this
+  for a real person.
 - The displayed name is `profile.name` in `src/data/profile.js`. The hero splits it
   automatically via `nameLines()`, so changing it there updates the hero, loading
   screen, footer and page title together.
 - `statistics` values in `src/data/profile.js`
 - The certificate list in `src/data/experience.js`
-- `https://ajk.dev` throughout `index.html` and the portfolio project's `live` link — register the real domain, then swap it in
+- `https://johndoe.dev` throughout `index.html` and the portfolio project's `live` link — register the real domain, then swap it in
 
-The contact form opens the visitor's mail client via `mailto:` so it works with no
-backend. To use a real endpoint, replace `sendMessage` in
-`src/components/sections/Contact.jsx` with a `fetch()` — the transmission animation
-and status states already handle success and failure.
+The contact form POSTs to Formspree (`FORMSPREE_ENDPOINT` in
+`src/components/sections/Contact.jsx`), currently reset to a placeholder —
+sign in at formspree.io, create a form, and paste its real endpoint in before
+the form will actually deliver anywhere.

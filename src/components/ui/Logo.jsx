@@ -1,9 +1,7 @@
 /**
  * ── BRAND MARK ────────────────────────────────────────────────────────
- * A hexagonal "chip" frame (nods to circuits/tech) around a geometric "A"
- * monogram, with three small nodes at alternating corners standing in for
- * the three initials — A·J·K — without needing three literal letterforms
- * crammed into a mark this small.
+ * A hexagonal "chip" frame (nods to circuits/tech) around a geometric "J"
+ * monogram, with three small decorative nodes at alternating corners.
  *
  * This is the single source of truth for the icon: it's reused in the
  * navbar, footer and loading screen. `public/favicon.svg` mirrors these
@@ -28,16 +26,16 @@ export default function Logo({ className = 'h-8 w-8' }) {
         strokeWidth="2.4"
         strokeLinejoin="round"
       />
-      {/* A monogram */}
+      {/* J monogram */}
       <path
-        d="M20,47 L32,16.5 L44,47 M25,37.5 H39"
+        d="M40,16 V40 Q40,49 31,49 Q23,49 21,41"
         fill="none"
         stroke="url(#logoGrad)"
         strokeWidth="4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Three corner nodes — the "J" and "K" of the mark */}
+      {/* Three corner nodes — decorative accents on the chip frame */}
       <circle cx="32" cy="5" r="2.3" fill="url(#logoGrad)" />
       <circle cx="8.6" cy="45.5" r="2.3" fill="url(#logoGrad)" />
       <circle cx="55.4" cy="45.5" r="2.3" fill="url(#logoGrad)" />
